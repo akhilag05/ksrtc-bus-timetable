@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="KSRTC Bus Timetable - Search bus services and routes across Karnataka."
+    >
+
+    <title>KSRTC Bus Timetable | Karnataka</title>
+
+    <link rel="stylesheet" href="/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <a href="#" class="brand">
+
+            <div class="brand-mark">
+                KSRTC
+            </div>
+
+            <div class="brand-text">
+
+                <strong>
+                    Karnataka Bus Timetable
+                </strong>
+
+                <span>
+                    Routes • Timings • Journey Information
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <nav class="main-nav">
+
+            <a href="#search">
+                Bus Search
+            </a>
+
+            <a href="#highlights">
+                Highlights
+            </a>
+
+            <a href="#karnataka">
+                Karnataka
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     PROVISIONAL NOTICE
+========================================================= -->
+
+<div class="notice-bar">
+
+    <div class="notice-track">
+
+        <span>
+            ⚠ TIMETABLE INFORMATION IS PROVISIONAL —
+            ROUTES AND TIMES MAY CHANGE.
+            PLEASE VERIFY WITH KSRTC BEFORE TRAVEL.
+        </span>
+
+        <span>
+            ⚠ TIMETABLE INFORMATION IS PROVISIONAL —
+            ROUTES AND TIMES MAY CHANGE.
+            PLEASE VERIFY WITH KSRTC BEFORE TRAVEL.
+        </span>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <div class="hero-images">
+
+        <div
+            class="hero-image active"
+            style="background-image:url('/images/K1.webp');"
+        ></div>
+
+        <div
+            class="hero-image"
+            style="background-image:url('/images/K2.jpg');"
+        ></div>
+
+        <div
+            class="hero-image"
+            style="background-image:url('/images/K3.webp');"
+        ></div>
+
+        <div
+            class="hero-image"
+            style="background-image:url('/images/K4.jpg');"
+        ></div>
+
+        <div
+            class="hero-image"
+            style="background-image:url('/images/M1.webp');"
+        ></div>
+
+    </div>
+
+
+    <div class="hero-overlay"></div>
+
+
+    <div class="hero-content">
+
+        <div class="hero-kicker">
+            KARNATAKA • CONNECTED BY ROAD
+        </div>
+
+
+        <h1>
+
+            Discover your next
+
+            <span>
+                bus journey.
+            </span>
+
+        </h1>
+
+
+        <p>
+            Search KSRTC timetable information by
+            starting point and destination.
+        </p>
+
+
+        <a
+            href="#search"
+            class="hero-button"
+        >
+
+            <span>
+                Search Bus Routes
+            </span>
+
+            <strong>
+                →
+            </strong>
+
+        </a>
+
+    </div>
+
+
+    <div class="hero-bottom">
+
+        <div>
+
+            <strong>
+                KSRTC
+            </strong>
+
+            <span>
+                Connecting Karnataka
+            </span>
+
+        </div>
+
+
+        <div class="hero-scroll">
+
+            SCROLL TO EXPLORE
+
+            <span>
+                ↓
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+
+<!-- =========================================================
+     SEARCH
+========================================================= -->
+
+<section
+    id="search"
+    class="search-section"
+>
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="eyebrow">
+                PLAN YOUR JOURNEY
+            </span>
+
+            <h2>
+
+                Find a bus
+
+                <span>
+                    across Karnataka
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <p>
+            Enter your starting point and destination
+            to view available services and route stops.
+        </p>
+
+    </div>
+
+
+
+    <div class="search-card">
+
+
+        <!-- FROM -->
+
+        <div class="search-field">
+
+            <label for="from">
+                From
+            </label>
+
+
+            <div class="input-wrap">
+
+                <span class="input-icon">
+                    ●
+                </span>
+
+
+                <input
+                    type="text"
+                    id="from"
+                    placeholder="Starting point"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+
+                <div
+                    id="fromSuggestions"
+                    class="suggestions"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SWAP -->
+
+        <button
+            type="button"
+            id="swapBtn"
+            class="swap-button"
+            title="Swap locations"
+            aria-label="Swap locations"
+        >
+            ⇄
+        </button>
+
+
+
+        <!-- TO -->
+
+        <div class="search-field">
+
+            <label for="to">
+                To
+            </label>
+
+
+            <div class="input-wrap">
+
+                <span class="input-icon destination-icon">
+                    ●
+                </span>
+
+
+                <input
+                    type="text"
+                    id="to"
+                    placeholder="Destination"
+                    autocomplete="off"
+                    spellcheck="false"
+                >
+
+
+                <div
+                    id="toSuggestions"
+                    class="suggestions"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SERVICE -->
+
+        <div class="search-field service-field">
+
+            <label for="serviceClass">
+                Service
+            </label>
+
+
+            <div class="input-wrap">
+
+                <span class="input-icon">
+                    ◆
+                </span>
+
+
+                <select id="serviceClass">
+
+                    <option value="">
+                        All Services
+                    </option>
+
+                    <option value="EXPRESS">
+                        EXPRESS
+                    </option>
+
+                    <option value="ORDINARY">
+                        ORDINARY
+                    </option>
+
+                    <option value="RAJAHAMSA">
+                        RAJAHAMSA
+                    </option>
+
+                    <option value="AIRAVATA">
+                        AIRAVATA
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SEARCH -->
+
+        <button
+            type="button"
+            id="searchBtn"
+            class="search-button"
+        >
+
+            <span>
+                Search Buses
+            </span>
+
+            <strong>
+                →
+            </strong>
+
+        </button>
+
+
+    </div>
+
+
+
+    <div
+        id="searchStatus"
+        class="search-status"
+    ></div>
+
+
+    <div
+        id="results"
+        class="results"
+    ></div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     HIGHLIGHTS / PHOTO MOSAIC
+========================================================= -->
+
+<section
+    id="highlights"
+    class="highlights-section"
+>
+
+
+    <div class="section-heading centered">
+
+        <span class="eyebrow">
+            THE JOURNEY MATTERS
+        </span>
+
+
+        <h2>
+            More than a
+            <span>
+                timetable.
+            </span>
+        </h2>
+
+
+        <p>
+            Explore the places, landscapes and heritage
+            that make travelling through Karnataka special.
+        </p>
+
+    </div>
+
+
+
+    <div class="photo-mosaic">
+
+
+        <!-- LARGE -->
+
+        <div class="mosaic-card mosaic-large">
+
+            <img
+                src="/images/K5.jpg"
+                alt="Karnataka landscape"
+                onerror="this.parentElement.classList.add('image-missing')"
+            >
+
+
+            <div class="mosaic-caption">
+
+                <span>
+                    01
+                </span>
+
+
+                <div>
+
+                    <strong>
+                        Roads through Karnataka
+                    </strong>
+
+                    <small>
+                        From towns to countryside
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- MANDYA -->
+
+        <div class="mosaic-card mosaic-top">
+
+            <img
+                src="/images/K6.jpg"
+                alt="Mandya"
+                onerror="this.parentElement.classList.add('image-missing')"
+            >
+
+
+            <div class="mosaic-label">
+                MANDYA
+            </div>
+
+        </div>
+
+
+
+        <!-- HERITAGE -->
+
+        <div class="mosaic-card mosaic-middle">
+
+            <img
+                src="/images/K7.jpg"
+                alt="Karnataka heritage"
+                onerror="this.parentElement.classList.add('image-missing')"
+            >
+
+
+            <div class="mosaic-label">
+                HERITAGE
+            </div>
+
+        </div>
+
+
+
+        <!-- KARNATAKA -->
+
+        <div class="mosaic-card mosaic-bottom">
+
+            <img
+                src="/images/K2.jpg"
+                alt="Karnataka"
+                onerror="this.parentElement.classList.add('image-missing')"
+            >
+
+
+            <div class="mosaic-label">
+                KARNATAKA
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     KARNATAKA
+========================================================= -->
+
+<section
+    id="karnataka"
+    class="karnataka-section"
+>
+
+
+    <div class="karnataka-copy">
+
+        <span class="eyebrow">
+            FROM MANDYA TO THE STATE
+        </span>
+
+
+        <h2>
+
+            One state.
+
+            <br>
+
+            <span>
+                Many journeys.
+            </span>
+
+        </h2>
+
+
+        <p>
+            Karnataka brings together royal cities,
+            historic monuments, green landscapes,
+            cultural traditions and thousands of
+            everyday journeys.
+        </p>
+
+
+        <p>
+            This timetable project makes those road
+            journeys easier to explore by connecting
+            places through route and service information.
+        </p>
+
+
+
+        <div class="fact-row">
+
+
+            <div>
+
+                <strong>
+                    01
+                </strong>
+
+                <span>
+                    Search routes
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    02
+                </strong>
+
+                <span>
+                    View stops
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    03
+                </strong>
+
+                <span>
+                    Plan your journey
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="karnataka-feature-image">
+
+        <img
+            src="/images/K4.jpg"
+            alt="Karnataka journey"
+            onerror="this.style.display='none'"
+        >
+
+
+        <div class="image-stamp">
+
+            <strong>
+                KA
+            </strong>
+
+            <span>
+                Karnataka
+            </span>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================================
+     DESTINATIONS
+========================================================= -->
+
+<section class="destination-section">
+
+
+    <div class="section-heading">
+
+        <div>
+
+            <span class="eyebrow">
+                PLACES ALONG THE WAY
+            </span>
+
+
+            <h2>
+
+                Karnataka in
+
+                <span>
+                    every direction.
+                </span>
+
+            </h2>
+
+        </div>
+
+
+        <p>
+            From Mandya and Mysuru to Bengaluru and beyond,
+            discover the places connected by Karnataka's roads.
+        </p>
+
+    </div>
+
+
+
+    <div class="destination-grid">
+
+
+        <!-- MANDYA -->
+
+        <article class="destination-card">
+
+            <img
+                src="/images/K6.jpg"
+                alt="Mandya"
+                onerror="this.parentElement.classList.add('image-missing')"
+            >
+
+
+            <div>
+
+                <span>
+                    01
+                </span>
+
+                <h3>
+                    Mandya
+                </h3>
+
+                <p>
+                    Sugar City & gateway routes
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- HERITAGE -->
+
+        <article class="destination-card">
+
+            <img
+                src="/images/K7.jpg"
+                alt="Karnataka heritage"
+                onerror="this.parentElement.classList.add('image-missing')"
+            >
+
+
+            <div>
+
+                <span>
+                    02
+                </span>
+
+                <h3>
+                    Heritage
+                </h3>
+
+                <p>
+                    Stories across Karnataka
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- KARNATAKA -->
+
+        <article class="destination-card">
+
+            <img
+                src="/images/K5.jpg"
+                alt="Karnataka"
+                onerror="this.parentElement.classList.add('image-missing')"
+            >
+
+
+            <div>
+
+                <span>
+                    03
+                </span>
+
+                <h3>
+                    Karnataka
+                </h3>
+
+                <p>
+                    Places connected by bus
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ROAD JOURNEYS -->
+
+        <article class="destination-card">
+
+            <img
+                src="/images/K8.jpg"
+                alt="Karnataka road journey"
+                onerror="this.parentElement.classList.add('image-missing')"
+            >
+
+
+            <div>
+
+                <span>
+                    04
+                </span>
+
+                <h3>
+                    Road Journeys
+                </h3>
+
+                <p>
+                    Find your next destination
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="final-cta">
+
+
+    <div class="cta-content">
+
+        <span class="eyebrow">
+            YOUR JOURNEY STARTS HERE
+        </span>
+
+
+        <h2>
+
+            Where are you
+
+            <span>
+                travelling next?
+            </span>
+
+        </h2>
+
+
+        <p>
+            Search a route and discover the buses
+            connecting Karnataka.
+        </p>
+
+
+        <a
+            href="#search"
+            class="hero-button light-button"
+        >
+
+            <span>
+                Search Bus Routes
+            </span>
+
+            <strong>
+                →
+            </strong>
+
+        </a>
+
+    </div>
+
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+
+    <div class="footer-inner">
+
+
+        <div>
+
+            <div class="footer-brand">
+                KSRTC
+            </div>
+
+            <p>
+                Karnataka Bus Timetable
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-note">
+
+            <strong>
+                Important
+            </strong>
+
+            <span>
+                Timetable and route information is
+                provisional. Please verify before travel.
+            </span>
+
+        </div>
+
+
+
+        <div class="footer-copy">
+
+            © 2026 KSRTC Bus Timetable Project
+
+        </div>
+
+
+    </div>
+
+
+</footer>
+
+
+
+<script src="/script.js"></script>
+
+</body>
+
+</html>
